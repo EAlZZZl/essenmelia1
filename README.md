@@ -15,4 +15,5 @@
 请保留署名及 NOTICE 文件以尊重原作者
 
 ## 关于作者
-埃森梅莉亚 (Essenmelia)
+- 埃森梅莉亚 (Essenmelia)
+- Gemini
