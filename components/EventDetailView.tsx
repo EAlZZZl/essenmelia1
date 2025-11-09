@@ -1,6 +1,5 @@
 
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Event, ProgressStep } from '../types';
 import { ArrowLeftIcon, CheckIcon, PencilIcon, ArrowUpTrayIcon } from './icons';
@@ -216,13 +215,21 @@ const EventDetailView: React.FC<EventDetailViewProps> = ({ event, onBack, onUpda
               const emojiMatch = step.description.match(emojiRegex);
               const isEmojiStep = !!emojiMatch;
 
-              // 现有逻辑，用于简短的非中日韩文字
+              // New: Check for space-separated words, which will be styled as squares with the first word.
+              const parts = step.description.split(' ');
+              const isFirstWordStyle = parts.length > 1;
+
+              // Original symbolic logic, adjusted to not conflict with the new style.
               const containsCJK = /[\u4e0-\u9fa5]/.test(step.description);
-              const isSymbolic = !isEmojiStep && !containsCJK && step.description.length <= 3;
+              const isSymbolic = !isEmojiStep && !isFirstWordStyle && !containsCJK && step.description.length <= 3;
               
-              // 如果是表情符号或符号性内容，则使用正方形布局
-              const layoutClasses = (isEmojiStep || isSymbolic) ? 'items-center aspect-square' : 'items-start h-full';
-              const displayText = isEmojiStep ? emojiMatch[0] : step.description.substring(0, 3);
+              // If it has a space, is an emoji, or is symbolic, use a square layout.
+              const layoutClasses = (isFirstWordStyle || isEmojiStep || isSymbolic) ? 'items-center aspect-square' : 'items-start h-full';
+
+              // Display text precedence: first word > emoji > first 3 chars.
+              const displayText = isFirstWordStyle 
+                ? parts[0] 
+                : (isEmojiStep ? emojiMatch[0] : step.description.substring(0, 3));
 
 
               return (
