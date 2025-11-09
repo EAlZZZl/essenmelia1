@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>埃森梅莉亚 (Essenmelia)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            keyframes: {
+              'spin': { 'from': { transform: 'rotate(0deg)' }, 'to': { transform: 'rotate(360deg)' } },
+              
+              // --- Fantasy / Arcane Primitives ---
+              // Removed blur and rotate for a cleaner, more magical "materialize" feel.
+              'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+              'fade-out': { '0%': { opacity: '1' }, '100%': { opacity: '0' } },
+              'scale-in': { '0%': { opacity: '0', transform: 'scale(0.95)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+              'scale-out': { '0%': { opacity: '1', transform: 'scale(1)' }, '100%': { opacity: '0', transform: 'scale(0.95)' } },
+              'slide-from-bottom': { '0%': { opacity: '0', transform: 'translateY(3rem)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+              'slide-to-bottom': { '0%': { opacity: '1', transform: 'translateY(0)' }, '100%': { opacity: '0', transform: 'translateY(3rem)' } },
+              'slide-from-right': { '0%': { opacity: '0', transform: 'translateX(3rem)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+              'slide-to-right': { '0%': { opacity: '1', transform: 'translateX(0)' }, '100%': { opacity: '0', transform: 'translateX(3rem)' } },
+              // A more grounded entrance for cards, like being placed on a table.
+              'content-enter': { '0%': { opacity: '0', transform: 'translateY(1rem)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            },
+            animation: {
+              'spin': 'spin 1s linear infinite',
+              
+              // --- Fantasy / Arcane Compositions ---
+              // Using a sharper, faster ease-out curve for a more decisive, magical feel.
+              // Durations are slightly shorter to feel more responsive.
+              'backdrop-enter': `fade-in 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'backdrop-exit': `fade-out 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'dialog-enter': `scale-in 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'dialog-exit': `scale-out 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'sheet-enter': `slide-from-bottom 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'sheet-exit': `slide-to-bottom 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'view-enter': `slide-from-right 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'view-exit': `slide-to-right 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+              'content-enter': `content-enter 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards`,
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^18.2.0/",
+    "react": "https://aistudiocdn.com/react@^18.2.0",
+    "react/": "https://aistudiocdn.com/react@^18.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-100 dark:bg-slate-900">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

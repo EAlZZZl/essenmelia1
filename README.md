@@ -1,19 +1,20 @@
-# 埃森梅莉亚 (Essenmelia)
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-欢迎来到 埃森梅莉亚 (Essenmelia) —— 一个记录与追踪你追过的故事、番剧、小说、电影、电视剧甚至事件的工具。
+# Run and deploy your AI Studio app
 
-## 功能
-- 导入和导出本地记录，轻松管理你的追踪清单
-- 支持多种内容类型：事件、小说、番剧、电视剧、电影等
-- 不作恶、跨平台
+This contains everything you need to run your app locally.
 
-## 安装与使用
+View your app in AI Studio: https://ai.studio/apps/drive/1CgcHPXBZa9IXb9z3j8oIVYG1mKzoP98L
+
+## Run Locally
+
+**Prerequisites:**  Node.js
 
 
-## 开源协议
-本项目使用 **Apache License 2.0** 开源
-请保留署名及 NOTICE 文件以尊重原作者
-
-## 关于作者
-- 埃森梅莉亚 (Essenmelia)
-- Gemini
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
